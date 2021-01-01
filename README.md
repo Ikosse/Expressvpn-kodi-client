@@ -1,5 +1,5 @@
-# Expressvpn-kodi-client
-Unofficial addon for managing expressvpn from within kodi. (Linux only)
+# Expressvpn-kodi-client (Linux only)
+Unofficial addon for managing expressvpn from within kodi.
 ![Screenshot](resources/images/expressvpn_scrot.png)
 
 Features:
