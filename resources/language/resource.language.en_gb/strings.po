@@ -1,0 +1,117 @@
+# Kodi Media Center language file
+# Addon Name: expressvpn
+# Addon id: script.expressvpn
+# Addon Provider: ikosse
+msgid ""
+msgstr ""
+"Project-Id-Version: XBMC Addons\n"
+"Report-Msgid-Bugs-To: alanwww1@xbmc.org\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-addons/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#32000"
+msgid "ExpressVPN"
+msgstr ""
+
+msgctxt "#33000"
+msgid "Notifications"
+msgstr ""
+
+msgctxt "#34000"
+msgid "General"
+msgstr ""
+
+msgctxt "#32001"
+msgid "Auto-connect"
+msgstr ""
+
+msgctxt "#32002"
+msgid "Desktop notifications"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Force VPN DNS"
+msgstr ""
+
+msgctxt "#32004"
+msgid "IPv6 leak protection (disables IPv6)"
+msgstr ""
+
+msgctxt "#32005"
+msgid "Network lock"
+msgstr ""
+
+msgctxt "#32006"
+msgid "Send diagnostics"
+msgstr ""
+
+msgctxt "#32007"
+msgid "Transport protocol"
+msgstr ""
+
+msgctxt "#32011"
+msgid "default"
+msgstr ""
+
+msgctxt "#32012"
+msgid "strict"
+msgstr ""
+
+msgctxt "#32013"
+msgid "off"
+msgstr ""
+
+msgctxt "#32014"
+msgid "auto"
+msgstr ""
+
+msgctxt "#32015"
+msgid "udp"
+msgstr ""
+
+msgctxt "#32016"
+msgid "tcp"
+msgstr ""
+
+msgctxt "#34001"
+msgid "Default location"
+msgstr ""
+
+msgctxt "#34002"
+msgid "Kodi notifications"
+msgstr ""
+
+msgctxt "#34003"
+msgid "Kodi notification sound"
+msgstr ""
+
+msgctxt "#34004"
+msgid "Show aliases"
+msgstr ""
+
+msgctxt "#34005"
+msgid "Timeout (seconds)"
+msgstr ""
+
+msgctxt "#34006"
+msgid "Settings warning"
+msgstr ""
+
+msgctxt "#34011"
+msgid "off"
+msgstr ""
+
+msgctxt "#34012"
+msgid "notification"
+msgstr ""
+
+msgctxt "#34013"
+msgid "dialog"
+msgstr ""

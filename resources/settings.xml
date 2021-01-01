@@ -1,0 +1,22 @@
+ <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+ <settings>
+     <category label="32000">
+         <setting id="auto_connect" type="bool" label="32001" default="false"/>
+         <setting id="desktop_notifications" type="bool" label="32002" default="true"/>
+         <setting id="force_vpn_dns" type="bool" label="32003" default="true"/>
+         <setting id="ipv6_leak_protection" type="bool" label="32004" default="true"/>
+         <setting id="network_lock" type="labelenum" label="32005" lvalues="32011|32012|32013" default="default"/>
+         <setting id="send_diagnostics" type="bool" label="32006" default="false"/>
+         <setting id="preferred_protocol" type="labelenum" label="32007" lvalues="32014|32015|32016" default="auto"/>
+     </category>
+
+     <category label="34000">
+	 	 <setting id="default_location" type="text" label="34001" default="smart"/>
+         <setting id="kodi_notifications" type="bool" label="34002" default="true"/>
+	     <setting id="kodi_notification_sound" type="bool" label="34003" default="true"/>
+	     <setting id="warn_settings" type="labelenum" label="34006" lvalues="34011|34012|34013" default="notification"/>
+         <setting id="show_alias" type="bool" label="34004" default="false"/>
+		 <setting id="timeout" type="slider" label="34005" default="30" range="0,5,90" option="int"/>
+     </category>
+ </settings>
+             
