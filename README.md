@@ -2,13 +2,13 @@
 Unofficial addon for managing expressvpn from within kodi.
 ![Screenshot](resources/images/expressvpn_scrot.png)
 
-Features:
+Provides a GUI for:
 
-i) Connect/disconnect to/from server.
+i) Connecting/disconnecting.
 
-ii) Change expressvpn settings.
+ii) Changing expressvpn settings.
 
-iii) Store your favourite servers.
+iii) Storing your favourite servers.
 
 # Installation
 Download repository as a zip file and follow these instructions: https://kodi.wiki/view/Archive:Install_add-ons_from_zip_files
