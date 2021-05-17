@@ -3,70 +3,136 @@
 import xbmc
 import xbmcaddon
 import xbmcgui
+import xbmcvfs
+import os
 import sys
-import logging
-import json as json
+import json
 
 
-# read settings
-ADDON = xbmcaddon.Addon()
-addon_name = ADDON.getAddonInfo('name')
-logger = logging.getLogger(__name__)
+class AddonUtils():
+
+    def __init__(self):
+        self.addon = xbmcaddon.Addon()
+        self.id = self.addon.getAddonInfo("id")
+        self.name = self.addon.getAddonInfo("name")
+        self.url = sys.argv[0]
+
+        self.path = xbmcvfs.translatePath(self.addon.getAddonInfo("path"))
+        self.profile = xbmcvfs.translatePath(self.addon.getAddonInfo("profile"))
+        self.resources = os.path.join(self.path, "resources")
+        self.media = os.path.join(self.resources, "media")
+        self.icon = self.addon.getAddonInfo("icon")
 
 
-def notification(message, header=addon_name, time=5000, icon=ADDON.getAddonInfo('icon'), sound=True, show=True):
-    if show:
-        xbmcgui.Dialog().notification(header, message, icon, time, sound)
+    def localize(self, *args):
+        if len(args) < 1:
+            raise ValueError("String id missing")
+        elif len(args) == 1:
+            string_id = args[0]
+            return self.addon.getLocalizedString(string_id)
+        else:
+            return [self.addon.getLocalizedString(string_id) for string_id in args]
 
 
-def show_settings():
-    ADDON.openSettings()
+    def notification(self, message, header=None, time=5000,
+                     icon=None, sound=False, show=True):
+
+        if header is None:
+            header = self.name
+
+        if icon is None:
+            icon = self.icon
+
+        if show:
+            xbmcgui.Dialog().notification(header, message, icon, time, sound)
 
 
-def get_setting(setting):
-    return ADDON.getSetting(setting).strip().decode('utf-8')
+class SettingsHandler():
+
+    def __init__(self, addon):
+        self.addon = addon
 
 
-def set_setting(setting, value):
-    ADDON.setSetting(setting, str(value))
+    def show_settings(self):
+        self.addon.openSettings()
 
 
-def get_setting_as_bool(setting):
-    return get_setting(setting).lower() == "true"
+    def get_setting(self, setting):
+        return self.addon.getSetting(setting).strip()
 
 
-def get_setting_as_float(setting):
-    try:
-        return float(get_setting(setting))
-    except ValueError:
-        return 0
+    def set_setting(self, setting, value):
+        self.addon.setSetting(setting, str(value))
 
 
-def get_setting_as_int(setting):
-    try:
-        return int(get_setting_as_float(setting))
-    except ValueError:
-        return 0
+    def get_setting_as_bool(self, setting):
+        return self.get_setting(setting).lower() == "true"
 
 
-def get_string(string_id):
-    return ADDON.getLocalizedString(string_id).encode('utf-8', 'ignore')
+    def get_setting_as_float(self, setting):
+        try:
+            return float(self.get_setting(setting))
+        except ValueError:
+            return 0
 
 
-def kodi_json_request(params):
-    data = json.dumps(params)
-    request = xbmc.executeJSONRPC(data)
+    def get_setting_as_int(self, setting):
+        try:
+            return int(self.get_setting_as_float(setting))
+        except ValueError:
+            return 0
 
-    try:
-        response = json.loads(request)
-    except UnicodeDecodeError:
-        response = json.loads(request.decode('utf-8', 'ignore'))
 
-    try:
-        if 'result' in response:
-            return response['result']
-        return None
-    except KeyError:
-        logger.warn("[%s] %s" %
-                    (params['method'], response['error']['message']))
-        return None
+
+class FavouritesHandler():
+    filename = "favourites.json"
+
+
+    def __init__(self, profile):
+        os.makedirs(profile, exist_ok=True)
+        self.save_path = os.path.join(profile, self.filename)
+        self.load()
+
+
+    def load(self):
+        try:
+            with open(self.save_path, "r") as favourites_file:
+                self.favourites_json = json.load(favourites_file)
+        except FileNotFoundError:
+            self.favourites_json = {}
+            self.favourites_json["servers"] = []
+            self.save()
+
+
+    def save(self):
+        with open(self.save_path, "w") as favourites_file:
+            json.dump(self.favourites_json, favourites_file)
+
+
+    def get_servers(self):
+        return self.favourites_json["servers"]
+
+
+    def add(self, server):
+        servers = self.favourites_json["servers"]
+        if server not in servers:
+            servers.append(server)
+        self.save()
+
+
+    def remove(self, alias):
+        for (id_, server) in enumerate(self.favourites_json["servers"]):
+            if server["alias"] == alias:
+                del self.favourites_json["servers"][id_]
+                break
+        self.save()
+
+
+    def clear(self):
+        self.favourites_json["servers"] = []
+        self.save()
+
+
+addon_utils = AddonUtils()
+settings_handler = SettingsHandler(addon_utils.addon)
+favourites_handler = FavouritesHandler(addon_utils.profile)

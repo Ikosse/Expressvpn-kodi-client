@@ -218,6 +218,7 @@ continent = {'Albania' : 'Europe',
              'Wake Island' : 'Oceania',
              'Wallis and Futuna' : 'Oceania'}
 
+
 def country_to_continent(country):
     country = country.split('-')[0].split('(')[0].strip()
     return continent[country]

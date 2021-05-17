@@ -1,4 +1,4 @@
-# Kodi Media Center language file
+# Kod Media Center language file
 # Addon Name: expressvpn
 # Addon id: script.expressvpn
 # Addon Provider: ikosse
@@ -16,102 +16,239 @@ msgstr ""
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgctxt "#32000"
+## Addon strings ##
+msgctxt "#30000"
+msgid "Disconnect"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Connected to"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Connect to"
+msgstr ""
+
+msgctxt "#30003"
+msgid "List servers"
+msgstr ""
+
+msgctxt "#30004"
+msgid "About"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Exit"
+msgstr ""
+
+msgctxt "#30006"
+msgid "All"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Favourites"
+msgstr ""
+
+
+msgctxt "#30008"
+msgid "Recommended"
+msgstr ""
+
+
+msgctxt "#30009"
+msgid "Refresh"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Connect"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Set as default"
+msgstr ""
+
+msgctxt "#30012"
+msgid "Remove"
+msgstr ""
+
+msgctxt "#30013"
+msgid "Clear"
+msgstr ""
+
+msgctxt "#30015"
+msgid "Are you sure you want to clear all favourites?"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Europe"
+msgstr ""
+
+msgctxt "#30017"
+msgid "Asia"
+msgstr ""
+
+msgctxt "#30018"
+msgid "North America"
+msgstr ""
+
+msgctxt "#30019"
+msgid "South America"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Africa"
+msgstr ""
+
+msgctxt "#30021"
+msgid "Oceania"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Add to favourites"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Connecting to"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Connected to"
+msgstr ""
+
+msgctxt "#30025"
+msgid "VPN is already connected, do you wish to disconnect from"
+msgstr ""
+
+msgctxt "#30026"
+msgid "and connect to"
+msgstr ""
+
+msgctxt "#30027"
+msgid "instead?"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Connection attempt timed out, do you wish to retry?"
+msgstr ""
+
+msgctxt "#30029"
+msgid "Disconnecting..."
+msgstr ""
+
+msgctxt "#30030"
+msgid "Disconnected"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Disconnection attemp timed out, do you wish to retry?"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Refreshed server list, note that this is done automatically every 3 hours"
+msgstr ""
+
+msgctxt "#30033"
+msgid "Refresh server list timed out"
+msgstr ""
+
+
+## Setting strings ##
+msgctxt "#30100"
 msgid "ExpressVPN"
 msgstr ""
 
-msgctxt "#33000"
-msgid "Notifications"
-msgstr ""
-
-msgctxt "#34000"
-msgid "General"
-msgstr ""
-
-msgctxt "#32001"
+msgctxt "#30101"
 msgid "Auto-connect"
 msgstr ""
 
-msgctxt "#32002"
+msgctxt "#30102"
 msgid "Desktop notifications"
 msgstr ""
 
-msgctxt "#32003"
+msgctxt "#30103"
 msgid "Force VPN DNS"
 msgstr ""
 
-msgctxt "#32004"
+msgctxt "#30104"
 msgid "IPv6 leak protection (disables IPv6)"
 msgstr ""
 
-msgctxt "#32005"
+msgctxt "#30105"
 msgid "Network lock"
 msgstr ""
 
-msgctxt "#32006"
-msgid "Send diagnostics"
-msgstr ""
-
-msgctxt "#32007"
-msgid "Transport protocol"
-msgstr ""
-
-msgctxt "#32011"
+msgctxt "#30106"
 msgid "default"
 msgstr ""
 
-msgctxt "#32012"
+msgctxt "#30107"
 msgid "strict"
 msgstr ""
 
-msgctxt "#32013"
+msgctxt "#30108"
 msgid "off"
 msgstr ""
 
-msgctxt "#32014"
+msgctxt "#30109"
+msgid "Send diagnostics"
+msgstr ""
+
+msgctxt "#30110"
+msgid "Transport protocol"
+msgstr ""
+
+msgctxt "#30111"
 msgid "auto"
 msgstr ""
 
-msgctxt "#32015"
+msgctxt "#30112"
 msgid "udp"
 msgstr ""
 
-msgctxt "#32016"
+msgctxt "#30113"
 msgid "tcp"
 msgstr ""
 
-msgctxt "#34001"
+msgctxt "#30114"
+msgid "General"
+msgstr ""
+
+msgctxt "#30115"
 msgid "Default location"
 msgstr ""
 
-msgctxt "#34002"
+msgctxt "#30116"
 msgid "Kodi notifications"
 msgstr ""
 
-msgctxt "#34003"
+msgctxt "#30117"
 msgid "Kodi notification sound"
 msgstr ""
 
-msgctxt "#34004"
-msgid "Show aliases"
-msgstr ""
-
-msgctxt "#34005"
-msgid "Timeout (seconds)"
-msgstr ""
-
-msgctxt "#34006"
+msgctxt "#30118"
 msgid "Settings warning"
 msgstr ""
 
-msgctxt "#34011"
+msgctxt "#30119"
 msgid "off"
 msgstr ""
 
-msgctxt "#34012"
+msgctxt "#30120"
 msgid "notification"
 msgstr ""
 
-msgctxt "#34013"
+msgctxt "#30121"
 msgid "dialog"
+msgstr ""
+
+msgctxt "#30122"
+msgid "Show aliases"
+msgstr ""
+
+msgctxt "#30123"
+msgid "Timeout (seconds)"
+msgstr ""
+
+msgctxt "#30124"
+msgid "Notifications"
 msgstr ""

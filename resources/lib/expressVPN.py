@@ -7,46 +7,34 @@ import re
 class ExpressVPNError(Exception):
       def __init__(self, msg, errno=None):
           self.errno = errno
-          self.msg = msg 
+          self.msg = msg
 
       def get_msg(self):
           # remove unnecessary formatting, such as red color etc.
-          return self.msg.replace("[0;31;49m", "").replace("[0;33;49m", "").replace("[?25l", "").replace("[0m", "").replace("\x1b", "").strip("\n")
+          return self.msg.decode().replace("[1;32;49m", "").replace("[0;31;49m", "").replace("[0;33;49m", "").replace("[?25l", "").replace("[0m", "").replace("\x1b", "").strip("\n")
 
       def get_errno(self):
           return self.errno
-   
+
       def __str__(self):
           return self.get_msg()
 
 
-class TimeoutExpired(Exception):
-    pass
-
-
-def process_timeout(proc, timeout, poll_time=0.1):
-    deadline = time.time() + timeout
-    while time.time() < deadline:
-        if proc.poll() is None:
-            time.sleep(poll_time)
-        else:
-            return False
-    return True
-
-
 def run_command(cmd, timeout=0):
-    proc = subprocess.Popen(shlex.split(cmd), bufsize=0, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    if timeout > 0:
+        process = subprocess.run(shlex.split(cmd),
+                                 stdout=subprocess.PIPE,
+                                 stderr=subprocess.STDOUT,
+                                 timeout=timeout)
+    else:
+        process = subprocess.run(shlex.split(cmd),
+                                 stdout=subprocess.PIPE,
+                                 stderr=subprocess.STDOUT)
 
-    if timeout > 0 and process_timeout(proc, timeout):
-        proc.terminate()
-        raise TimeoutExpired()
+    if process.returncode != 0:
+        raise ExpressVPNError(process.stdout, process.returncode)
 
-    stdout, stderr = proc.communicate()
-
-    if proc.returncode != 0:
-        raise ExpressVPNError(stdout, proc.returncode)
-
-    return stdout.replace("[0;31;49m", "").replace("[0;33;49m", "").replace("[?25l", "").replace("[0m", "").replace("\x1b", "")
+    return process.stdout.decode().replace("[1;32;49m", "").replace("[0;31;49m", "").replace("[0;33;49m", "").replace("[?25l", "").replace("[0m", "").replace("\x1b", "")
 
 
 def status():
@@ -96,16 +84,26 @@ def connected_location():
     return "Not connected"
 
 
-def alias_location(alias):
-    return location_dictionary()[alias]
+def get_location(alias):
+    servers = list_servers(recommended=False)
+    for server in servers:
+        if server["alias"] == alias:
+            return server["location"]
+    else:
+        return None
 
 
-def location_dictionary():
-    return dict(list_servers(recommended=False))
+def get_alias(location):
+    servers = list_servers(recommended=False)
+    for server in servers:
+        if server["location"] == location:
+            return server["alias"]
+    else:
+        return None
 
 
 def smart_location():
-    return alias_location('smart')
+    return alias_location("smart")
 
 
 def list_servers(recommended=True):
@@ -118,20 +116,20 @@ def list_servers(recommended=True):
     server_list = []
     # loop over all servers and extract alias and location
     for line in vpn_list:
-        line_split = re.split("\s\s+" , "  ".join(line.split(" ", 1))) 
+        line_split = re.split("\s\s+" , "  ".join(line.split(" ", 1)))
         # skip line if it is not a server
         if len(line_split) < 2:
             continue
-         
+
         if (not recommended or line_split[-1] == "Y"):
             alias = line_split[0]
-            location = line_split[-2] 
+            location = line_split[-2]
             # Bosnia and Herzegovina is a special case
             if alias == "ba":
                 location = "Bosnia and Herzegovina"
-            server_list.append((alias, location))
+            server_list.append({"alias": alias, "location": location})
 
-    return server_list 
+    return server_list
 
 
 def preference_status(preference):
