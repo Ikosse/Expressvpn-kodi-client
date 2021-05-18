@@ -9,8 +9,6 @@ iii) Storing your favourite servers.
 
 iv) Changing ExpressVPN settings.
 
-You need a paid subscription for the add-on to work.
-
 ## Screenshots
 <table>
   <tr>
@@ -22,13 +20,13 @@ You need a paid subscription for the add-on to work.
  </table>
 
 ## Installation
-Download repository as a zip file and follow these instructions: https://kodi.wiki/view/Archive:Install_add-ons_from_zip_files.
+Download this repository as a zip file and follow these instructions: https://kodi.wiki/view/Archive:Install_add-ons_from_zip_files. Use the Leia branch for Leia and earlier versions of Kodi and the Master branch for Matrix. The add-on has been tested to work for Krypton (17.6) and higher.
 
 ## Disclaimer
 This add-on is unofficial and its author has no affiliation with https://expressvpn.com.
 
 ## Additional Notes
-Use the Leia branch for Leia and earlier versions of Kodi and the Master branch for Matrix. The add-on has been tested to work for Krypton (17.6) and higher. I only aim at providing support for current releases of Kodi.
+I only aim att providing support for current releases of Kodi. You need a paid subscription for the add-on to work.
 
 ## Contact
 email: andrelofgren@hotmail.co.uk
