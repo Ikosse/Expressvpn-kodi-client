@@ -20,7 +20,7 @@ logger = logging.getLogger(ADDON.getAddonInfo('id'))
 dialog = xbmcgui.Dialog()
 
 
-def run(): 
+def run():
     try:
         process_settings()
         main_menu()
@@ -305,7 +305,6 @@ def connectVPN(server_alias):
 
     except TimeoutExpired as te:
         retry = dialog.yesno(addon_name, "Connection attempt timed out, do you wish to retry? ")
-        disconnectVPN()
         if retry:
             connectVPN(server_alias)
 
