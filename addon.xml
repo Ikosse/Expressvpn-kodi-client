@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.expressvpn" name="ExpressVPN" version="1.0.1+matrix.1" provider-name="ikosse">
+<addon id="script.expressvpn" name="ExpressVPN" version="1.0.1+matrix.1" provider-name="Ikosse">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
     </requires>
@@ -7,8 +7,8 @@
         <provides>executable</provides>
     </extension>
     <extension point="xbmc.addon.metadata">
-			<summary lang="en_GB">Unofficial ExpressVPN Kodi gui for Linux.</summary>
-			<description lang="en_GB">Manage your ExpressVPN connections from Kodi.</description>
+			<summary lang="en_GB">Manage ExpressVPN connections from Kodi.</summary>
+			<description lang="en_GB">This addon communicates with ExpressVPN daemon through the Python subprocess module.</description>
         <language></language>
         <platform>linux</platform>
         <license>GPL-2.0-or-later</license>
@@ -20,6 +20,10 @@
         <assets>
             <icon>resources/icon.png</icon>
             <fanart>resources/fanart.jpg</fanart>
+			<screenshot>resources/media/screenshot-01.png<\screenshot>
+			<screenshot>resources/media/screenshot-02.png<\screenshot>
+			<screenshot>resources/media/screenshot-03.png<\screenshot>
+			<screenshot>resources/media/screenshot-04.png<\screenshot>
         </assets>
     </extension>
 </addon>
