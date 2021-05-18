@@ -30,3 +30,5 @@ This add-on is unofficial and its author has no affiliation with https://express
 ## Additional Notes
 Use the Leia branch for Leia and earlier versions of Kodi and the Master branch for Matrix. The add-on has been tested to work for Krypton (17.6) and higher. I only aim at providing support for current releases of Kodi.
 
+## Contact
+email: andrelofgren@hotmail.co.uk
